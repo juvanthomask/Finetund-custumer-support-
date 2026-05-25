@@ -32,6 +32,7 @@ PROMPT_TEMPLATE = """### Instruction:
 {input}
 
 ### Response:"""
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 
 def parse_args() -> argparse.Namespace:
@@ -39,25 +40,25 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--config",
         type=Path,
-        default=Path("configs/qlora_config.yaml"),
+        default=PROJECT_ROOT / "configs" / "qlora_config.yaml",
         help="Path to the YAML hyperparameter config.",
     )
     parser.add_argument(
         "--data-dir",
         type=Path,
-        default=Path("data/processed/eval"),
+        default=PROJECT_ROOT / "data" / "processed" / "eval",
         help="Directory containing iid_eval.jsonl and ood_eval.jsonl.",
     )
     parser.add_argument(
         "--adapter-dir",
         type=Path,
-        default=Path("outputs/final_adapter"),
+        default=PROJECT_ROOT / "outputs" / "final_adapter",
         help="Directory containing the saved LoRA adapter.",
     )
     parser.add_argument(
         "--output-file",
         type=Path,
-        default=Path("outputs/eval_results.json"),
+        default=PROJECT_ROOT / "outputs" / "eval_results.json",
         help="Where to store the evaluation results.",
     )
     parser.add_argument(

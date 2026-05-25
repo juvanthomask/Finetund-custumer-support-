@@ -17,6 +17,8 @@ pip install -r requirements.txt
 
 Download the Bitext dataset from Kaggle and place the CSV in `data/raw/`.
 
+In Colab, the repo is assumed to live at `/content/Finetund-custumer-support-`. The scripts resolve paths from the repo root, so you can run them from anywhere once the notebook has cloned or mounted the project there.
+
 For Kaggle Notebook use, the dataset can also be copied from `/kaggle/input/` into `data/raw/` before running the scripts.
 
 ## Project Layout

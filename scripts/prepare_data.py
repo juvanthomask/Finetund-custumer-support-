@@ -26,6 +26,7 @@ from sklearn.model_selection import train_test_split
 BASE_INSTRUCTION = (
     "You are a helpful customer support agent. Answer the following customer query."
 )
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 
 def parse_args() -> argparse.Namespace:
@@ -33,13 +34,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--raw-dir",
         type=Path,
-        default=Path("data/raw"),
+        default=PROJECT_ROOT / "data" / "raw",
         help="Directory containing the downloaded Kaggle CSV.",
     )
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=Path("data/processed"),
+        default=PROJECT_ROOT / "data" / "processed",
         help="Directory where processed JSONL files will be written.",
     )
     parser.add_argument(

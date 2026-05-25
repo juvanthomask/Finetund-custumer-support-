@@ -32,6 +32,7 @@ PROMPT_TEMPLATE = """### Instruction:
 
 ### Response:
 {response}"""
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 
 def parse_args() -> argparse.Namespace:
@@ -39,19 +40,19 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--config",
         type=Path,
-        default=Path("configs/qlora_config.yaml"),
+        default=PROJECT_ROOT / "configs" / "qlora_config.yaml",
         help="Path to the YAML hyperparameter config.",
     )
     parser.add_argument(
         "--data-dir",
         type=Path,
-        default=Path("data/processed"),
+        default=PROJECT_ROOT / "data" / "processed",
         help="Directory containing train.jsonl and val.jsonl.",
     )
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=Path("outputs"),
+        default=PROJECT_ROOT / "outputs",
         help="Directory for checkpoints, logs, and the final adapter.",
     )
     parser.add_argument(
@@ -123,7 +124,7 @@ def main() -> None:
     args = parse_args()
     cfg = load_config(args.config)
 
-    output_dir = Path(cfg["output"]["output_dir"])
+    output_dir = args.output_dir
     output_dir.mkdir(parents=True, exist_ok=True)
     checkpoint_dir = output_dir / "checkpoints"
     final_adapter_dir = output_dir / "final_adapter"
