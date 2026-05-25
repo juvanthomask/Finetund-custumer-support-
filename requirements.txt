@@ -1,0 +1,14 @@
+torch>=2.2.0
+transformers>=4.44.2
+peft>=0.12.0
+trl>=0.11.4
+bitsandbytes>=0.43.3
+accelerate>=0.33.0
+datasets>=2.20.0
+rouge_score>=0.1.2
+bert_score>=0.3.13
+pyyaml>=6.0.2
+pandas>=2.2.2
+scikit-learn>=1.5.1
+sentencepiece>=0.2.0
+scipy>=1.13.1
